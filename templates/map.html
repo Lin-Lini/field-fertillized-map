@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Результаты Анализа</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa; 
+        }
+        h1, h3 {
+            color: #343a40; 
+        }
+        #map-container {
+            width: 100%;
+            max-width: 800px; 
+            height: 500px;
+            margin: 20px auto; 
+            border: 2px solid #343a40; 
+            border-radius: 10px; 
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
+            overflow: hidden; 
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+        .btn-container {
+            margin-top: 170px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .btn {
+            padding: 15px 25px;
+            font-size: 18px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); 
+        }
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+        .btn-success:hover {
+            background-color: #218838;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Результаты Анализа</h1>
+        <h3 class="text-center">Интерактивная Карта</h3>
+        <div id="map-container">
+            {{ map_html|safe }}
+        </div>
+        <hr>
+        <div class="text-center">
+            <a href="{{ url_for('download_kml') }}" class="btn btn-success">Скачать KML-файл</a>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">Назад</a>
+        </div>
+        <footer>
+            &copy; 2024 Система Рекомендаций по Внесению Удобрений. Все права защищены.
+        </footer>
+    </div>
+</body>
+</html>
